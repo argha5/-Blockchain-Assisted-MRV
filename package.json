@@ -1,0 +1,30 @@
+{
+    "name": "blockchain-mrv-ml",
+    "version": "0.1.0",
+    "description": "Blockchain-Assisted MRV for Machine Learning Workloads",
+    "main": "index.js",
+    "scripts": {
+        "test": "npx hardhat test",
+        "compile": "npx hardhat compile",
+        "node": "npx hardhat node",
+        "deploy:localhost": "npx hardhat run scripts/deploy.js --network localhost",
+        "clean": "npx hardhat clean"
+    },
+    "keywords": [
+        "blockchain",
+        "mrv",
+        "machine-learning",
+        "carbon",
+        "sustainability",
+        "green-ai"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "devDependencies": {
+        "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+        "hardhat": "^2.19.0"
+    },
+    "dependencies": {
+        "@openzeppelin/contracts": "^5.0.0"
+    }
+}

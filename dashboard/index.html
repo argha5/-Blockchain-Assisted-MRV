@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRV Verification Dashboard | Green Computing</title>
+    <meta name="description" content="Verify ML training emissions using blockchain-assisted MRV">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@4.2.0/dist/web3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🌱</span>
+                <h1>MRV Verification Dashboard</h1>
+            </div>
+            <p class="subtitle">Blockchain-Assisted Verification for ML Workloads</p>
+        </header>
+
+        <!-- Connection Status -->
+        <div class="status-bar" id="statusBar">
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span id="statusText">Not Connected</span>
+            </div>
+            <button class="btn btn-connect" id="connectBtn" onclick="connectBlockchain()">
+                Connect to Blockchain
+            </button>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Verification Form -->
+            <section class="card">
+                <h2>🔍 Verify MRV Record</h2>
+                <p class="card-description">
+                    Verify the integrity of ML training emissions data using blockchain verification
+                </p>
+
+                <div class="form-group">
+                    <label for="mrvId">MRV ID</label>
+                    <input 
+                        type="text" 
+                        id="mrvId" 
+                        class="input" 
+                        placeholder="MRV-a3f2e9d4-b1c8-4567-89ab-cdef01234567"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="jsonFile">Upload MRV JSON File</label>
+                    <input 
+                        type="file" 
+                        id="jsonFile" 
+                        class="file-input" 
+                        accept=".json"
+                        onchange="handleFileUpload(event)"
+                    >
+                    <div class="file-upload-area" onclick="document.getElementById('jsonFile').click()">
+                        <span class="upload-icon">📄</span>
+                        <p>Click to upload or drag and drop</p>
+                        <p class="upload-hint">MRV JSON file</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="verifyMRV()">
+                    Verify Integrity
+                </button>
+            </section>
+
+            <!-- Verification Result -->
+            <section class="card result-card" id="resultCard" style="display: none;">
+                <div class="result-header" id="resultHeader">
+                    <!-- Result status will be injected here -->
+                </div>
+                <div class="result-details" id="resultDetails">
+                    <!-- Result details will be injected here -->
+                </div>
+            </section>
+
+            <!-- MRV Data Viewer -->
+            <section class="card" id="dataViewer" style="display: none;">
+                <h2>📊 MRV Data</h2>
+                <div class="data-display">
+                    <pre id="mrvDataDisplay" class="json-viewer"></pre>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with 💚 for sustainable AI | 
+                <a href="https://github.com/yourusername/blockchain-mrv-ml" target="_blank">GitHub</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
