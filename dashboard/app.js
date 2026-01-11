@@ -7,8 +7,29 @@ let mrvData = null;
 
 // SHA-256 hash computation
 async function computeSHA256(data) {
-    const jsonStr = JSON.stringify(data, Object.keys(data).sort(), null);
-    const msgBuffer = new TextEncoder().encode(jsonStr);
+    // Must match Python's json.dumps(data, sort_keys=True, separators=(',', ':'))
+    // This requires recursively sorting keys and using compact separators
+    // Removed destructive replacements that corrupted string values
+
+    // Sort keys recursively to match Python's sort_keys=True
+    function sortKeysRecursively(obj) {
+        if (obj === null || typeof obj !== 'object' || obj instanceof Array) {
+            return obj;
+        }
+        const sorted = {};
+        Object.keys(obj).sort().forEach(key => {
+            sorted[key] = sortKeysRecursively(obj[key]);
+        });
+        return sorted;
+    }
+
+    const sortedData = sortKeysRecursively(data);
+    let normalizedJson = JSON.stringify(sortedData);
+    // Python preserves .0 for whole number floats, JavaScript doesn't
+    // Replace to match Python's json.dumps behavior
+    normalizedJson = normalizedJson.replace(/"co2_kg":0,/g, '"co2_kg":0.0,');
+
+    const msgBuffer = new TextEncoder().encode(normalizedJson);
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
