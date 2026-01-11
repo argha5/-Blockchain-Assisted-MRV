@@ -12,8 +12,8 @@ Get started with blockchain-assisted MRV for ML workloads in 5 minutes!
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/blockchain-mrv-ml.git
-cd blockchain-mrv-ml
+git clone https://github.com/argha5/Blockchain-Assisted-MRV.git
+cd Blockchain-Assisted-MRV
 
 # Install Python dependencies
 pip install -r requirements.txt

@@ -60,8 +60,8 @@ This project introduces a **Blockchain-Assisted MRV (Measurement-Reporting-Verif
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/blockchain-mrv-ml.git
-cd blockchain-mrv-ml
+git clone https://github.com/argha5/Blockchain-Assisted-MRV.git
+cd Blockchain-Assisted-MRV
 
 # Install Python dependencies
 pip install -r requirements.txt

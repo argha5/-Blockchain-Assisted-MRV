@@ -5,8 +5,8 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/blockchain-mrv-ml.git
-cd blockchain-mrv-ml
+git clone https://github.com/argha5/Blockchain-Assisted-MRV.git
+cd Blockchain-Assisted-MRV
 ```
 
 ### 2. Install Python Dependencies

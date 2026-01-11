@@ -11,7 +11,7 @@ setup(
     description="Blockchain-Assisted MRV for Machine Learning Workloads",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/blockchain-mrv-ml",
+    url="https://github.com/argha5/Blockchain-Assisted-MRV",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
